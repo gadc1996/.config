@@ -7,7 +7,12 @@ then
   mons -e left
   bspc monitor HDMI-1 -d VII VIII
   bspc monitor LVDS-1 -d IX X
-else
+elif [[ $(hostname) == "controlla" &&  $(xrandr -q | grep '\bconnected\b' | wc -l) == 2 ]] 
+then
+  mons -e left
+  bspc monitor HDMI1 -d VII VIII
+  bspc monitor eDP1 -d IX X
+else 
   bspc monitor -d VII VIII IX X
 fi
 
